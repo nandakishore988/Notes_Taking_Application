@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function CreateArea(props) {
   const [note, setNote] = useState({
@@ -17,13 +18,15 @@ function CreateArea(props) {
     });
   }
 
-  function submitNote(event) {
-    props.onAdd(note);
-    setNote({
-      title: "",
-      content: ""
-    });
+  async function submitNote(event) {
     event.preventDefault();
+
+      props.onAdd(note); 
+      setNote({
+        title: "",
+        content: ""
+      });
+    
   }
 
   return (

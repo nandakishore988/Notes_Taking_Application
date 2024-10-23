@@ -5,9 +5,12 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-keywords": "^5.1.0",
+    "axios": "^1.7.7",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-scripts": "3.2.0"
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "typescript": "3.3.3"
