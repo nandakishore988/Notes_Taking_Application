@@ -55,7 +55,7 @@ app.delete('/notes/:id', async (req, res) => {
       if (!deletedNote) {
         return res.status(404).json({ message: 'Note not found' });
       }
-      res.status(200).json({ message: 'Note deleted successfully' });
+      res.status(204).json({ message: 'Note deleted successfully' });
     } catch (err) {
       console.error("Error while deleting:", err.message); // Debugging line
       res.status(500).json({ message: err.message });
@@ -63,6 +63,10 @@ app.delete('/notes/:id', async (req, res) => {
   });
   
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://127.0.0.1:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://127.0.0.1:${PORT}`);
+  });
+}
+
+module.exports = {app, Note}
