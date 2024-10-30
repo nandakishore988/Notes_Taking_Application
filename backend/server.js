@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json()); // For parsing application/json
 
 // MongoDB connection
-mongoose.connect("mongodb+srv://nandakishoresuc:IA7oZWKs9xE6c3z3@cluster0.2mujj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+mongoose.connect(process.env.MONGO_URI);
 
 // Define a Note model
 const noteSchema = new mongoose.Schema({
